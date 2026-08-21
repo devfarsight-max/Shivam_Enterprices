@@ -1,3 +1,25 @@
-import {useState,useEffect} from 'react';import {NavLink,Link,Outlet,useLocation} from 'react-router-dom';import {ArrowRight,Leaf,Menu,X} from 'lucide-react'
+import {useState,useLayoutEffect,useEffect} from 'react'
+import {NavLink,Link,Outlet,useLocation} from 'react-router-dom'
+import {ArrowRight,Leaf,Menu,X} from 'lucide-react'
+import AdditionalContent from './AdditionalContent'
+import HomeContent from './HomeContent'
+import AboutContent from './AboutContent'
+
 const links=[['/','Home'],['/about','About'],['/products','Products'],['/infrastructure','Infrastructure'],['/contact','Contact']]
-export default function Layout(){const[open,setOpen]=useState(false);const{pathname}=useLocation();useEffect(()=>{window.scrollTo({top:0,behavior:'instant'})},[pathname]);return <div className="site-shell"><header className="navbar"><Link className="brand" to="/" aria-label="Shivam Enterprises home"><span className="brand-mark"><Leaf size={23}/></span><span><strong>SHIVAM</strong><small>ENTERPRISES</small></span></Link><nav className={open?'nav-links open':'nav-links'} aria-label="Main navigation">{links.slice(0,-1).map(([to,label])=><NavLink key={to} to={to} onClick={()=>setOpen(false)}>{label}</NavLink>)}<NavLink className="nav-cta" to="/contact" onClick={()=>setOpen(false)}>Get in touch <ArrowRight size={16}/></NavLink></nav><button className="menu-button" onClick={()=>setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>{open?<X/>:<Menu/>}</button></header><main><Outlet/></main><footer><div className="footer-main"><Link className="brand footer-brand" to="/"><span className="brand-mark"><Leaf size={23}/></span><span><strong>SHIVAM</strong><small>ENTERPRISES</small></span></Link><p>Organised trading of quality rice and paddy from Gondia, Maharashtra.</p><div className="footer-links">{links.map(([to,label])=><Link key={to} to={to}>{label}</Link>)}</div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} SHIVAM ENTERPRISES. All rights reserved.</span><span>Gondia · Maharashtra · India</span></div></footer></div>}
+
+export default function Layout(){
+ const[open,setOpen]=useState(false)
+ const[scrolled,setScrolled]=useState(false)
+ const{pathname}=useLocation()
+ useLayoutEffect(()=>{history.scrollRestoration='manual';window.scrollTo(0,0)},[pathname])
+ useEffect(()=>{const update=()=>setScrolled(window.scrollY>72);update();window.addEventListener('scroll',update,{passive:true});return()=>window.removeEventListener('scroll',update)},[])
+ return <div className="site-shell">
+  <header className={`navbar ${scrolled?'navbar-scrolled':''}`}>
+   <Link className="brand" to="/" aria-label="Shivam Enterprises home"><span className="brand-mark"><Leaf size={23}/></span><span><strong>SHIVAM</strong><small>ENTERPRISES</small></span></Link>
+   <nav className={open?'nav-links open':'nav-links'} aria-label="Main navigation">{links.slice(0,-1).map(([to,label])=><NavLink key={to} to={to} onClick={()=>setOpen(false)}>{label}</NavLink>)}<NavLink className="nav-cta" to="/contact" onClick={()=>setOpen(false)}>Get in touch <ArrowRight size={16}/></NavLink></nav>
+   <button className="menu-button" onClick={()=>setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>{open?<X/>:<Menu/>}</button>
+  </header>
+  <main><Outlet/>{pathname==='/'&&<HomeContent/>}{pathname==='/about'&&<AboutContent/>}<AdditionalContent/></main>
+  <footer><div className="footer-main"><Link className="brand footer-brand" to="/"><span className="brand-mark"><Leaf size={23}/></span><span><strong>SHIVAM</strong><small>ENTERPRISES</small></span></Link><p>Organised trading of quality rice and paddy from Gondia, Maharashtra.</p><div className="footer-links">{links.map(([to,label])=><Link key={to} to={to}>{label}</Link>)}</div></div><div className="footer-bottom"><span>Copyright {new Date().getFullYear()} SHIVAM ENTERPRISES. All rights reserved.</span><span>Gondia • Maharashtra • India</span></div></footer>
+ </div>
+}
