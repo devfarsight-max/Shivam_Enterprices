@@ -1,2 +1,29 @@
-import {MapPin,Mail,Phone,Clock,Send} from 'lucide-react';import PageHero from '../components/PageHero';import SectionLabel from '../components/SectionLabel'
-export default function Contact(){return <><PageHero eyebrow="Contact us" title="Start a dependable" accent="business relationship." text="Tell us what you need and our team will connect with you to discuss sourcing, volumes and delivery."/><section className="page-section contact-page"><div><SectionLabel number="01">Get in touch</SectionLabel><h2>Let&apos;s talk about<br/><em>your requirement.</em></h2><p className="contact-intro">We welcome enquiries from rice millers, exporters, institutions and procurement partners.</p><div className="contact-details"><div><MapPin/><span><b>Business location</b>Gondia, Maharashtra, India</span></div><div><Mail/><span><b>Email</b>contact@shivamenterprises.in</span></div><div><Phone/><span><b>Phone</b>Contact number to be updated</span></div><div><Clock/><span><b>Business hours</b>Monday–Saturday · 9:00 AM–6:00 PM</span></div></div></div><form className="enquiry-form" onSubmit={e=>e.preventDefault()}><div className="field-row"><label>Full name<input required placeholder="Your name"/></label><label>Company<input placeholder="Business name"/></label></div><div className="field-row"><label>Email<input type="email" required placeholder="you@company.com"/></label><label>Phone<input type="tel" placeholder="Your contact number"/></label></div><label>Requirement<select defaultValue=""><option value="" disabled>Select a requirement</option><option>Quality Paddy</option><option>Premium Rice</option><option>Bulk Procurement</option><option>Partnership Enquiry</option></select></label><label>Message<textarea rows="5" placeholder="Tell us about quantity, quality and delivery location..."/></label><button className="button button-dark" type="submit">Send enquiry <Send size={17}/></button><small>Form submission will be connected when the client provides their preferred email or CRM.</small></form></section></>}
+import {MapPin,Mail,Phone,Clock} from 'lucide-react'
+import PageHero from '../components/PageHero'
+import SectionLabel from '../components/SectionLabel'
+
+const details = [
+  {icon: MapPin, label: 'Business location', value: 'Gondia, Maharashtra, India'},
+  {icon: Mail, label: 'Email', value: 'contact@shivamenterprises.in', href: 'mailto:contact@shivamenterprises.in'},
+  {icon: Phone, label: 'Phone', value: 'Contact number to be updated'},
+  {icon: Clock, label: 'Business hours', value: 'Monday–Saturday · 9:00 AM–6:00 PM'},
+]
+
+export default function Contact(){
+ return <>
+  <PageHero eyebrow="Contact us" title="Start a dependable" accent="business relationship." text="Connect with our team to discuss sourcing, volumes and delivery."/>
+  <section className="page-section contact-page contact-details-only">
+   <div className="contact-heading">
+    <SectionLabel number="01">Get in touch</SectionLabel>
+    <h2>Let&apos;s talk about<br/><em>your requirement.</em></h2>
+    <p className="contact-intro">We welcome conversations with rice millers, exporters, institutions and procurement partners.</p>
+   </div>
+   <div className="contact-details">
+    {details.map(({icon:Icon,label,value,href})=><div key={label}>
+     <Icon aria-hidden="true"/>
+     <span><b>{label}</b>{href?<a href={href}>{value}</a>:value}</span>
+    </div>)}
+   </div>
+  </section>
+ </>
+}
