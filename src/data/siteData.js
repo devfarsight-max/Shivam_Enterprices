@@ -1,4 +1,76 @@
-import { Clock3, Handshake, PackageCheck, ShieldCheck, Sprout, Truck, Warehouse, Scale, ScanLine, Network } from 'lucide-react'
-export const services=[{icon:Sprout,number:'01',title:'Quality Paddy',text:'Carefully sourced paddy from trusted farmers and trading partners, selected for consistent quality.'},{icon:PackageCheck,number:'02',title:'Premium Rice',text:'Dependable rice supply for millers, exporters and institutional buyers across growing markets.'},{icon:Truck,number:'03',title:'Reliable Delivery',text:'Planned logistics and timely dispatches that keep procurement and production moving.'}]
-export const strengths=[{icon:ShieldCheck,title:'Quality Assured',text:'Every lot is sourced with a consistent focus on quality.'},{icon:Clock3,title:'Timely Supply',text:'Reliable procurement and responsive delivery schedules.'},{icon:Handshake,title:'Transparent Trade',text:'Clear communication, fair pricing and dependable practices.'},{icon:Warehouse,title:'Growing Capacity',text:'Improved storage and inventory systems for greater scale.'}]
-export const operations=[{icon:Network,title:'Strong sourcing network',text:'Long-term relationships with farmers, traders and processing units support year-round availability.'},{icon:Scale,title:'Organised handling',text:'Structured procurement, weighing and documentation bring consistency to every transaction.'},{icon:ScanLine,title:'Inventory visibility',text:'Efficient stock oversight enables faster decisions, accurate fulfilment and dependable planning.'},{icon:Warehouse,title:'Storage expansion',text:'Improved facilities will protect produce quality while supporting higher trading volumes.'}]
+import {
+  Clock3,
+  Handshake,
+  PackageCheck,
+  ShieldCheck,
+  Sprout,
+  Truck,
+  Warehouse,
+  Scale,
+  ScanLine,
+  Network,
+} from "lucide-react";
+export const services = [
+  {
+    icon: Sprout,
+    number: "01",
+    title: "Quality Paddy",
+    text: "Carefully sourced paddy from trusted farmers and trading partners, selected for consistent quality.",
+  },
+  {
+    icon: PackageCheck,
+    number: "02",
+    title: "Premium Rice",
+    text: "Dependable rice supply for millers, exporters and institutional buyers across growing markets.",
+  },
+  {
+    icon: Truck,
+    number: "03",
+    title: "Reliable Delivery",
+    text: "Planned logistics and timely dispatches that keep procurement and production moving.",
+  },
+];
+export const strengths = [
+  {
+    icon: ShieldCheck,
+    title: "Quality Assured",
+    text: "Every lot is sourced with a consistent focus on quality.",
+  },
+  {
+    icon: Clock3,
+    title: "Timely Supply",
+    text: "Reliable procurement and responsive delivery schedules.",
+  },
+  {
+    icon: Handshake,
+    title: "Transparent Trade",
+    text: "Clear communication, fair pricing and dependable practices.",
+  },
+  {
+    icon: Warehouse,
+    title: "Growing Capacity",
+    text: "Improved storage and inventory systems for greater scale.",
+  },
+];
+export const operations = [
+  {
+    icon: Network,
+    title: "Strong sourcing network",
+    text: "Long-term relationships with farmers, traders and processing units support year-round availability.",
+  },
+  {
+    icon: Scale,
+    title: "Organised handling",
+    text: "Structured procurement, weighing and documentation bring consistency to every transaction.",
+  },
+  {
+    icon: ScanLine,
+    title: "Inventory visibility",
+    text: "Efficient stock oversight enables faster decisions, accurate fulfilment and dependable planning.",
+  },
+  {
+    icon: Warehouse,
+    title: "Storage expansion",
+    text: "Improved facilities will protect produce quality while supporting higher trading volumes.",
+  },
+];
