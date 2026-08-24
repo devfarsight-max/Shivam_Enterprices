@@ -3,9 +3,9 @@ import PageHero from '../components/PageHero'
 import SectionLabel from '../components/SectionLabel'
 
 const details = [
-  {icon: MapPin, label: 'Business location', value: 'Gondia, Maharashtra, India'},
-  {icon: Mail, label: 'Email', value: 'contact@shivamenterprises.in', href: 'mailto:contact@shivamenterprises.in'},
-  {icon: Phone, label: 'Phone', value: 'Contact number to be updated'},
+  {icon: MapPin, label: 'Business location', value: 'At Rajabhoj Colony, Ring Road, District Gondia, Maharashtra 441601'},
+  {icon: Mail, label: 'Email', value: 'nirajpardhi1@gmail.com', href: 'mailto:nirajpardhi1@gmail.com'},
+  {icon: Phone, label: 'Phone', value: '8208539590', href: 'tel:+918208539590'},
   {icon: Clock, label: 'Business hours', value: 'Monday–Saturday · 9:00 AM–6:00 PM'},
 ]
 
